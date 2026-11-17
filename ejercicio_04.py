@@ -58,3 +58,6 @@ class ListaEnlazada:
                 actual = actual.siguiente
         
         return None
+
+#  TEORIA
+#  La referencia al penultimo esta en el siguiente del nodo anterior a el. los nodos no tienen referencia hacia atras por eso empezamos desde cabeza y sus siguientes
