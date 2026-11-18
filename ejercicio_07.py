@@ -1,0 +1,2 @@
+# TEORIA
+# No, porque la búsqueda binaria descarta la mitad de la lista suponiendo que está ordenada por nombre, y si está ordenada por ataque puede descartar justo la mitad donde estaba el que busco.
