@@ -65,11 +65,29 @@ class ListaEnlazada:
             yield actual.dato
             actual = actual.siguiente
 
+    def eliminar(self, id):
+        actual = self.cabeza
+        anterior = None
+
+        while actual is not None:
+            if actual.dato.id == id:
+
+                if anterior is None:
+                    self.cabeza = actual.siguiente
+                else:
+                    anterior.siguiente = actual.siguiente
+                return True
+
+            anterior = actual
+            actual = actual.siguiente
+
+        return False
+
 class Equipo:
 
     def __iter__(self):
         return iter(self.lista)
-        
+
     def __init__(self):
         self.lista = ListaEnlazada()
     def cantidad(self):
@@ -79,6 +97,10 @@ class Equipo:
             raise EquipoLlenoError("Equipo lleno")
         
         self.lista.insertar_al_final(pokemon)
-
+    
+    def quitar(self, id):
+        resultado = self.lista.eliminar(id)
+        if resultado is False:
+            raise PokemonNoEncontrado("Pokemon no encontrado")
 #  TEORIA
 #  La referencia al penultimo esta en el siguiente del nodo anterior a el. los nodos no tienen referencia hacia atras por eso empezamos desde cabeza y sus siguientes
