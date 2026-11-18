@@ -58,6 +58,12 @@ class ListaEnlazada:
                 actual = actual.siguiente
         
         return None
+    
+    def __iter__(self):
+        actual = self.cabeza
+        while actual is not None:
+            yield actual.dato
+            actual = actual.siguiente
 
 class Equipo:
     def __init__(self):
