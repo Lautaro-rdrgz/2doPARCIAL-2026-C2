@@ -59,5 +59,16 @@ class ListaEnlazada:
         
         return None
 
+class Equipo:
+    def __init__(self):
+        self.lista = ListaEnlazada()
+    def cantidad(self):
+        return self.lista.tamanio()
+    def agregar(self, pokemon):
+        if self.cantidad() == 6:
+            raise EquipoLlenoError("Equipo lleno")
+        
+        self.lista.insertar_al_final(pokemon)
+
 #  TEORIA
 #  La referencia al penultimo esta en el siguiente del nodo anterior a el. los nodos no tienen referencia hacia atras por eso empezamos desde cabeza y sus siguientes
