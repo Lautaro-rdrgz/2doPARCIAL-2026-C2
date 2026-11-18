@@ -66,6 +66,10 @@ class ListaEnlazada:
             actual = actual.siguiente
 
 class Equipo:
+
+    def __iter__(self):
+        return iter(self.lista)
+        
     def __init__(self):
         self.lista = ListaEnlazada()
     def cantidad(self):
